@@ -1,7 +1,9 @@
+using ApplicantsManagementSystem.DAL.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,7 +29,14 @@ namespace ApplicantsManagementSystem.Api
 		public void ConfigureServices(IServiceCollection services)
 		{
 
-			services.AddControllers();
+			services.AddControllers()
+				.AddJsonOptions(option=> {
+					option.JsonSerializerOptions.PropertyNamingPolicy = null;
+				});
+
+			services.AddDbContext<ApplicantManagementDBContext>(options =>
+				options.UseSqlServer(Configuration.GetConnectionString("ApplicantManagementDB")));
+
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApplicantsManagementSystem.Api", Version = "v1" });
