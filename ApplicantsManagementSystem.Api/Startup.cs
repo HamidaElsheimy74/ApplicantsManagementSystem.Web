@@ -1,4 +1,9 @@
+using ApplicantsManagementSystem.BAL.Interfaces;
+using ApplicantsManagementSystem.BAL.Services;
 using ApplicantsManagementSystem.DAL.Core;
+using ApplicantsManagementSystem.DAL.Interfaces;
+using ApplicantsManagementSystem.DAL.Repository;
+using ApplicantsManagementSystem.Domain.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,11 +41,16 @@ namespace ApplicantsManagementSystem.Api
 
 			services.AddDbContext<ApplicantManagementDBContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("ApplicantManagementDB")));
-
+			services.AddTransient<IApplicantServices, ApplicantServices>();
+			services.AddTransient<IRepository<Applicant>, Repository<Applicant>>();
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApplicantsManagementSystem.Api", Version = "v1" });
+				c.IncludeXmlComments(string.Format(@"{0}\ApplicantsManagementSystem.Api.xml", System.AppDomain.CurrentDomain.BaseDirectory));
+
 			});
+		
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -13,8 +13,8 @@ namespace ApplicantsManagementSystem.Domain.Models
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { set; get; }
-		public DateTime CreationDate { set; get; }
-		public DateTime UpdateDate { set; get; }
+		public DateTime? CreationDate { set; get; }
+		public DateTime? UpdateDate { set; get; }
 
 	}
 }

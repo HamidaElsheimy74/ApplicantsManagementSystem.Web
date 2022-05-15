@@ -1,0 +1,416 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApplicantsManagementSystem.Api</name>
+    </assembly>
+    <members>
+        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.AddAplicant(ApplicantsManagementSystem.BAL.Models.ApplicantModel)">
+            <summary>
+            Add new applicant
+            </summary>
+            <param name="model"></param>
+            <remarks>
+            
+            Request Sample :
+            
+            	{
+            		"Name": "hamida",
+            		"FamilyName": "hamida",
+            		"EmailAddress": "ham@ham.ham",
+            		"Address": "nasr city, 5 street",
+            		"CountryOfOrigin": "Egypt",
+            		"Age": 27,
+            		"Hired": true
+            	}
+            	
+            Response Sample:
+            
+            
+            Status Code: 400 BadRequest if name is empty or null
+            
+                {
+                 
+                 "ErrorMessage" : "The name is empty or null."
+                }
+                
+            Status Code: 400 BadRequest if name is less  than 5 letters
+            
+                {
+                 
+                 "ErrorMessage" : "Invalid name, it must be at least 5 characters."
+                }
+                
+            Status Code: 400 BadRequest if family name is empty or null
+            
+                {
+                 
+                 "ErrorMessage" : "The family name is empty or null."
+                }
+                
+            Status Code: 400 BadRequest if family name is smaller than 5 letters
+            
+                {
+                 
+                 "ErrorMessage" : "Invalid family name, it must be at least 5 characters."
+                }
+                
+            Status Code: 400 BadRequest if email is empty or null
+            
+                {
+                 
+                 "ErrorMessage" : "The Email is empty or null."
+                }
+            
+            Status Code: 400 BadRequest if email is invalid format
+            
+                {
+                 
+                 "ErrorMessage" : "Invalid family name, it must be like h@h.com."
+                }
+                
+            Status Code: 400 BadRequest if Address is empty or null
+            
+                {
+                 
+                 "ErrorMessage" : "The Address is empty or null."
+                }
+                
+            Status Code: 400 BadRequest if Address is less than 10 letters
+            
+                {
+                 
+                 "ErrorMessage" : "Invalid address, it must be at least 10 characters."
+                }
+            		
+            Status Code: 400 BadRequest if country of origin is null or  empty
+            
+                {
+                 
+                 "ErrorMessage" : "The country of origin is empty or null."
+                }
+                
+            Status Code: 400 BadRequest if country of origin is invalid
+            
+                {
+                 
+                 "ErrorMessage" : "Invalid country of origin."
+                }
+                
+            Status Code: 400 BadRequest if Age is less than 20 and greater than 60
+            
+                {
+                 
+                 "ErrorMessage" : "Age must be between 20 and 60."
+                }
+                
+            Status Code: 400 BadRequest if country of hired is null or  empty
+            
+                {
+                 
+                 "ErrorMessage" : "You have to choose wither the applicant is hired or not."
+                }
+                
+            
+            Status Code: 500 BadRequest if server error occured
+            
+                {
+                 
+                 "ErrorMessage" : "An error occured while processing your request :"
+                }
+            	
+            Status Code: 200 ok if success
+            
+                {
+            		Data=true
+                }
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.UpdateApplicant(ApplicantsManagementSystem.BAL.Models.ApplicantModel)">
+             <summary>
+             update  applicant data
+             </summary>
+             <param name="model"></param>
+             <remarks>
+             
+            	Request Sample :
+             
+            		{
+            			"Id":1,
+            			"Name": "hamida",
+            			"FamilyName": "hamida",
+            			"EmailAddress": "ham@ham.ham",
+            			"Address": "nasr city, 5 street",
+            			"CountryOfOrigin": "Egypt",
+            			"Age": 27,
+            			"Hired": true
+            		}
+            		
+             Response Sample:
+             
+             
+            	Status Code: 400 BadRequest if name is empty or null
+             
+                 {
+                  
+                  "ErrorMessage" : "The name is empty or null."
+                 }
+                 
+             Status Code: 400 BadRequest if name is less  than 5 letters
+             
+                 {
+                  
+                  "ErrorMessage" : "Invalid name, it must be at least 5 characters."
+                 }
+                 
+             Status Code: 400 BadRequest if family name is empty or null
+             
+                 {
+                  
+                  "ErrorMessage" : "The family name is empty or null."
+                 }
+                 
+             Status Code: 400 BadRequest if family name is smaller than 5 letters
+             
+                 {
+                  
+                  "ErrorMessage" : "Invalid family name, it must be at least 5 characters."
+                 }
+                 
+             Status Code: 400 BadRequest if email is empty or null
+             
+                 {
+                  
+                  "ErrorMessage" : "The Email is empty or null."
+                 }
+             
+             
+            Status Code: 400 BadRequest if email is invalid format
+             
+                 {
+                  
+                  "ErrorMessage" : "Invalid family name, it must be like h@h.com."
+                 }
+                 
+             Status Code: 400 BadRequest if Address is empty or null
+             
+                 {
+                  
+                  "ErrorMessage" : "The Address is empty or null."
+                 }
+                 
+             Status Code: 400 BadRequest if Address is less than 10 letters
+             
+                 {
+                  
+                  "ErrorMessage" : "Invalid address, it must be at least 10 characters."
+                 }
+            			
+             Status Code: 400 BadRequest if country of origin is null or  empty
+             
+                 {
+                  
+                  "ErrorMessage" : "The country of origin is empty or null."
+                 }
+                 
+             Status Code: 400 BadRequest if country of origin is invalid
+             
+                 {
+                  
+                  "ErrorMessage" : "Invalid country of origin."
+                 }
+                 
+             Status Code: 400 BadRequest if Age is less than 20 and greater than 60
+             
+                 {
+                  
+                  "ErrorMessage" : "Age must be between 20 and 60."
+                 }
+                 
+             Status Code: 400 BadRequest if country of hired is null or  empty
+             
+                 {
+                  
+                  "ErrorMessage" : "You have to choose wither the applicant is hired or not."
+                 }
+                 
+             
+             Status Code: 400 BadRequest if Id is not valid
+             
+                 {
+                  
+                  "ErrorMessage" : "Invalid Id, it must be provided and greater than 0."
+                 }
+            
+             
+             Status Code: 400 BadRequest if no applicant was found with the given Id
+             
+                 {
+                  
+                  "ErrorMessage" : "This applicant is not exist."
+                 }
+            
+             Status Code: 500 BadRequest if server error occured
+             
+                 {
+                  
+                  "ErrorMessage" : "An error occured while processing your request :"
+                 }
+            		
+             Status Code: 200 ok if success
+             
+                 {
+            			Data=true
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.GetAll">
+             <summary>
+             gets all the applicants
+             </summary>
+             <remarks>
+             Response Sample:
+            
+             Status Code: 500 BadRequest if server error occured
+             
+                 {
+                  
+                  "ErrorMessage" : "An error occured while processing your request :"
+                 }
+            		
+             Status Code: 200 ok if success
+             
+                 {
+            			"Data": [
+            				{
+            				     "Name": "hamida",
+              				 "FamilyName": "hamida",
+             				 "Address": "nasr city city",
+               				 "CountryOfOrigin": null,
+              				 "EmailAdress": "ham@ham.ham",
+            					 "Age": 27,
+            					 "Hired": true,
+               				 "Id": 1,
+                				 "CreationDate": "2022-05-14T12:15:41.8348553",
+               				 "UpdateDate": null
+                			}
+             		 ]
+                 }
+                 
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.GetById(System.Int32)">
+             <summary>
+             Get applicant by Id
+             </summary>
+             <remarks>
+             
+             Request Sample:
+             
+            		{
+            				"Id":1
+            		}
+            
+             Response Sample:
+             
+             Status Code: 400 BadRequest if Id is not valid
+             
+                 {
+                  
+                  "ErrorMessage" : "Invalid Id, it must be provided and greater than 0."
+                 }
+            
+             
+             Status Code: 400 BadRequest if no applicant was found with the given Id
+             
+                 {
+                  
+                  "ErrorMessage" : "This applicant is not exist."
+                 }
+            
+             
+             Status Code: 500 BadRequest if server error occured
+             
+                 {
+                  
+                  "ErrorMessage" : "An error occured while processing your request :"
+                 }
+            		
+             
+             Status Code: 200 ok if success
+             
+                 {
+            			"Data":
+            				{
+            				     "Name": "hamida",
+              				 "FamilyName": "hamida",
+             				 "Address": "nasr city city",
+               				 "CountryOfOrigin": null,
+              				 "EmailAdress": "ham@ham.ham",
+            					 "Age": 27,
+            					 "Hired": true,
+               				 "Id": 1,
+                				 "CreationDate": "2022-05-14T12:15:41.8348553",
+               				 "UpdateDate": null
+                			}
+             		 
+                 }
+                 
+             
+             </remarks>
+             <param name="Id"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.DeleteApplicant(System.Int32)">
+             <summary>
+             Delete applicant
+             </summary>
+             <remarks>
+             
+             Request Sample:
+             
+            		{
+            				"Id":1
+            		}
+            
+             Response Sample:
+             
+             
+             Status Code: 400 BadRequest if no applicant was found with the given Id
+             
+                 {
+                  
+                  "ErrorMessage" : "This applicant is not exist."
+                 }
+            
+             Status Code: 400 BadRequest if Id is not valid
+             
+                 {
+                  
+                  "ErrorMessage" : "Invalid Id, it must be provided and greater than 0."
+                 }
+            
+             
+             Status Code: 500 BadRequest if server error occured
+             
+                 {
+                  
+                  "ErrorMessage" : "An error occured while processing your request :"
+                 }
+            		
+             
+             Status Code: 200 ok if success
+             
+                 {
+            			"Data": true
+                 }
+                 
+             
+             </remarks>
+             <param name="Id"></param>
+             <returns></returns>
+        </member>
+    </members>
+</doc>

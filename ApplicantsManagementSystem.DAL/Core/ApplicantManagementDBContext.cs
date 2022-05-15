@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ApplicantsManagementSystem.DAL.Core
 {
-	public class ApplicantManagementDBContext : DbContext, IApplicantManagementDBContext
+	public class ApplicantManagementDBContext : DbContext
 	{
 		public ApplicantManagementDBContext(DbContextOptions<ApplicantManagementDBContext> options)
 			:base(options)

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicantsManagementSystem.Domain.Models
+namespace ApplicantsManagementSystem.Web.Models
 {
-	[Table("Applicant")]
-	public class Applicant: Entity
+	public class ApplicantViewModel
 	{
+		public int? Id { set; get; }
 		public string Name { set; get; }
 		public string FamilyName { set; get; }
 		public string Address { set; get; }
@@ -17,6 +15,5 @@ namespace ApplicantsManagementSystem.Domain.Models
 		public string EmailAddress { set; get; }
 		public int Age { set; get; }
 		public bool? Hired { set; get; }
-
 	}
 }
