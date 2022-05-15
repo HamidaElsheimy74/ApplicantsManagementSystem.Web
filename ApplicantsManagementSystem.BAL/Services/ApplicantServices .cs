@@ -139,6 +139,18 @@ namespace ApplicantsManagementSystem.BAL.Services
 					};
 				}
 
+				var isExist = repository.GetById(x => x.EmailAddress == model.EmailAddress 
+													&& x.Name == model.Name && x.FamilyName == model.FamilyName);
+
+				if(isExist!=null)
+				{
+					return new ApplicantResponseModel()
+					{
+						HasError = true,
+						ErrorMessage = ErrorMessageGenerator.GenerateErrorMessage(ErrorMessageGeneratorEnum.UserExist)
+					};
+				}
+
 				var applicant = new Applicant()
 				{
 					CreationDate=DateTime.UtcNow,
@@ -399,6 +411,7 @@ namespace ApplicantsManagementSystem.BAL.Services
 						applicant.CountryOfOrigin = model.CountryOfOrigin;
 						applicant.Age = model.Age;
 						applicant.UpdateDate = DateTime.UtcNow;
+						applicant.Hired = model.Hired;
 
 						var isUpdated=repository.Update(applicant);
 						return new ApplicantResponseModel()

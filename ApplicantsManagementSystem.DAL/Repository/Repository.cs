@@ -74,14 +74,8 @@ namespace ApplicantsManagementSystem.DAL.Repository
 			try
 			{
 				var list=context.Set<T>().ToList();
-				if(list.Count>0 && list!=null)
-				{
+				
 					return list;
-				}
-				else
-				{
-					return null;
-				}
 			}
 			catch(Exception)
 			{

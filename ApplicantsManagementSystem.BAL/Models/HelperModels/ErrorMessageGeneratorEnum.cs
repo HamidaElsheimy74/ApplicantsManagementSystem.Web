@@ -24,5 +24,6 @@ namespace ApplicantsManagementSystem.BAL.Models.HelperModels
 		InvalidModel=14,
 		itemNotExist=15,
 		InvalidId=16,
+		UserExist=17,
 	}
 }

@@ -4,74 +4,97 @@
     ViewData["Title"] = "Applicants List";
 }
 
-<h1>Index</h1>
+<h1>Applicants List</h1>
 
 <p>
     <a asp-action="Create">Add New Applicant</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FamilyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CountryOfOrigin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmailAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                Hired
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FamilyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountryOfOrigin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmailAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayName(item.Hired==true?"Yes":"No")
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.FamilyName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Address)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.CountryOfOrigin)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.EmailAddress)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Age)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Hired)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	@{ 
+	try
+	{
+		
+			var index = 0;
+			foreach (var item in Model)
+			{
+				index = index + 1;
+			<tr>
+				<td>
+					@*@Html.DisplayFor(modelItem => item.Id)*@
+					@index
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.FamilyName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Address)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.CountryOfOrigin)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.EmailAddress)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Age)
+				</td>
+				<td>
+					@Html.DisplayName(item.Hired == true ? "Yes" :item.Hired==false? "No": "Null")
+				</td>
+				<td>
+					@Html.ActionLink("Edit", "Edit", new
+					{
+						Id = item.Id,
+						Name = item.Name,
+						FamilyName = item.FamilyName,
+						EmailAddress = item.EmailAddress,
+					Address = item.Address,
+						CountryOfOrigin = item.CountryOfOrigin,
+						Age = item.Age,
+						Hired = item.Hired
+					}) |
+					@Html.ActionLink("Details", "Details", new { Id = item.Id }) |
+					@Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+				</td>
+			</tr>
+			}
+		
+	}
+	catch (Exception)
+	{
+
+	}
+	}
 </table>

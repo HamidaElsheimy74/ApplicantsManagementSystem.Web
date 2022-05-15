@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 
 namespace ApplicantsManagementSystem.Api.Controllers
 {
+
+	/// <summary>
+	/// manages all applicant operations
+	/// </summary>
 	[Route("api/")]
 	[ApiController]
 	public class ApplicantManagementController : ControllerBase
@@ -125,6 +129,13 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		///      "ErrorMessage" : "You have to choose wither the applicant is hired or not."
 		///     }
 		///     
+		///  Status Code: 400 BadRequest if country of hired is null or  empty
+		/// 
+		///     {
+		///      
+		///      "ErrorMessage" : " This applicant is already exist."
+		///     }
+		///    
 		/// 
 		/// Status Code: 500 BadRequest if server error occured
 		/// 
@@ -136,7 +147,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		/// Status Code: 200 ok if success
 		/// 
 		///     {
-		///			Data=true
+		///			true
 		///     }
 		/// </remarks>
 		/// <returns></returns>
@@ -308,7 +319,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		/// Status Code: 200 ok if success
 		/// 
 		///     {
-		///			Data=true
+		///			true
 		///     }
 		/// </remarks>
 		/// <returns></returns>
@@ -362,22 +373,19 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		///		
 		/// Status Code: 200 ok if success
 		/// 
-		///     {
-		///			"Data": [
-		///				{
-		///				     "Name": "hamida",
-		///  				 "FamilyName": "hamida",
-		/// 				 "Address": "nasr city city",
-		///   				 "CountryOfOrigin": null,
-		///  				 "EmailAdress": "ham@ham.ham",
-		///					 "Age": 27,
-		///					 "Hired": true,
-		///   				 "Id": 1,
-		///    				 "CreationDate": "2022-05-14T12:15:41.8348553",
-		///   				 "UpdateDate": null
-		///    			}
-		/// 		 ]
-		///     }
+		///			{
+		///				 "Name": "hamida",
+		///  			 "FamilyName": "hamida",
+		/// 			 "Address": "nasr city city",
+		///   			 "CountryOfOrigin": null,
+		///  			 "EmailAdress": "ham@ham.ham",
+		///				 "Age": 27,
+		///				 "Hired": true,
+		///   			 "Id": 1,
+		///    			 "CreationDate": "2022-05-14T12:15:41.8348553",
+		///   			 "UpdateDate": null
+		///    		}
+		/// 		 
 		///     
 		/// </remarks>
 		/// <returns></returns>
@@ -448,22 +456,19 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		/// 
 		/// Status Code: 200 ok if success
 		/// 
-		///     {
-		///			"Data":
-		///				{
-		///				     "Name": "hamida",
-		///  				 "FamilyName": "hamida",
-		/// 				 "Address": "nasr city city",
-		///   				 "CountryOfOrigin": null,
-		///  				 "EmailAdress": "ham@ham.ham",
-		///					 "Age": 27,
-		///					 "Hired": true,
-		///   				 "Id": 1,
-		///    				 "CreationDate": "2022-05-14T12:15:41.8348553",
-		///   				 "UpdateDate": null
-		///    			}
-		/// 		 
-		///     }
+		///			{
+		///			     "Name": "hamida",
+		///  			 "FamilyName": "hamida",
+		/// 			 "Address": "nasr city city",
+		///   			 "CountryOfOrigin": null,
+		///  			 "EmailAdress": "ham@ham.ham",
+		///				 "Age": 27,
+		///				 "Hired": true,
+		///   			 "Id": 1,
+		///    			 "CreationDate": "2022-05-14T12:15:41.8348553",
+		///   			 "UpdateDate": null
+		///   			 
+		///    		}
 		///     
 		/// 
 		/// </remarks>
@@ -534,7 +539,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		/// Status Code: 200 ok if success
 		/// 
 		///     {
-		///			"Data": true
+		///			 true
 		///     }
 		///     
 		/// 

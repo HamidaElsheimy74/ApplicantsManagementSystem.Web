@@ -74,6 +74,11 @@ namespace ApplicantsManagementSystem.BAL.Models.HelperModels
 				ErrorMessageGeneratorEnum.InvalidId,
 				"Invalid Id, it must be provided and greater than 0."
 			}
+			,
+			{
+				ErrorMessageGeneratorEnum.UserExist,
+				"This applicant is already exist."
+			}
 		};
 
 		public static string GenerateErrorMessage(ErrorMessageGeneratorEnum errorMessageGeneratorEnum)
