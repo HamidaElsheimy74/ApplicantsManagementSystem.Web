@@ -1,4 +1,5 @@
 ﻿using ApplicantsManagementSystem.BAL.Interfaces;
+using ApplicantsManagementSystem.BAL.Interfaces.ApplicantInterfaces;
 using ApplicantsManagementSystem.BAL.Models;
 using ApplicantsManagementSystem.BAL.Models.HelperModels;
 using Microsoft.AspNetCore.Http;
@@ -19,10 +20,22 @@ namespace ApplicantsManagementSystem.Api.Controllers
 	[ApiController]
 	public class ApplicantManagementController : ControllerBase
 	{
-		private readonly IApplicantServices applicantServices;
-		public ApplicantManagementController(IApplicantServices applicantServices)
+		//private readonly IApplicantServices applicantServices;
+		IAddApplicantService addApplicantService;
+		IUpdateApplicantService updateApplicantService;
+		IDeleteApplicantService deleteApplicantService;
+		IGetByIdApplicantService getByIdApplicantService;
+		IGetAllApplicantsService getAllApplicantsService;
+		public ApplicantManagementController(IAddApplicantService addApplicantService,IUpdateApplicantService updateApplicantService,
+											IDeleteApplicantService deleteApplicantService,IGetByIdApplicantService getByIdApplicantService,
+											IGetAllApplicantsService getAllApplicantsService)
 		{
-			this.applicantServices = applicantServices;
+			//this.applicantServices = applicantServices;
+			this.addApplicantService = addApplicantService;
+			this.updateApplicantService = updateApplicantService;
+			this.deleteApplicantService = deleteApplicantService;
+			this.getByIdApplicantService = getByIdApplicantService;
+			this.getAllApplicantsService = getAllApplicantsService;
 		}
 		/// <summary>
 		/// Add new applicant
@@ -159,7 +172,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 			{
 				if(ModelState.IsValid)
 				{
-					var response =applicantServices.Add(model);
+					var response =addApplicantService.Add(model);
 					if(response.HasError)
 					{
 						return StatusCode((int)HttpStatusCode.BadRequest,
@@ -331,7 +344,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 			{
 				if (ModelState.IsValid)
 				{
-					var response = applicantServices.Update(model);
+					var response = updateApplicantService.Update(model);
 					if (response.HasError)
 					{
 						return StatusCode((int)HttpStatusCode.BadRequest,
@@ -395,7 +408,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		{
 			try
 			{
-				var response = applicantServices.GetAll();
+				var response = getAllApplicantsService.GetAll();
 				if(response.HasError)
 				{
 					return StatusCode((int)HttpStatusCode.BadRequest,
@@ -480,7 +493,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		{
 			try
 			{
-				var response = applicantServices.GetById(Id);
+				var response = getByIdApplicantService.GetById(Id);
 				if(response.HasError)
 				{
 					return StatusCode((int)HttpStatusCode.BadRequest,
@@ -553,7 +566,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		{
 			try
 			{
-				var response = applicantServices.Delete(Id);
+				var response = deleteApplicantService.Delete(Id);
 				if (response.HasError)
 				{
 					return StatusCode((int)HttpStatusCode.BadRequest,

@@ -13,4 +13,12 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ApplicantServicesTes\AddApplicantServiceTest\" />
+    <Folder Include="ApplicantServicesTes\DeleteApplicantServiceTest\" />
+    <Folder Include="ApplicantServicesTes\GetApplicantServiceTest\" />
+    <Folder Include="ApplicantServicesTes\GetAllApplicantsServiceTest\" />
+    <Folder Include="ApplicantServicesTes\UpdateApplicantServiceTest\" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,8 @@
+using ApplicantsManagementSystem.BAL.DI;
 using ApplicantsManagementSystem.BAL.Interfaces;
 using ApplicantsManagementSystem.BAL.Services;
 using ApplicantsManagementSystem.DAL.Core;
+using ApplicantsManagementSystem.DAL.DI;
 using ApplicantsManagementSystem.DAL.Interfaces;
 using ApplicantsManagementSystem.DAL.Repository;
 using ApplicantsManagementSystem.Domain.Models;
@@ -41,8 +43,12 @@ namespace ApplicantsManagementSystem.Api
 
 			services.AddDbContext<ApplicantManagementDBContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("ApplicantManagementDB")));
-			services.AddTransient<IApplicantServices, ApplicantServices>();
-			services.AddTransient<IRepository<Applicant>, Repository<Applicant>>();
+
+			//Register DI
+			services.RegisterServices();
+			services.RegisterDAL();
+			//services.AddScoped<IApplicantServices, ApplicantServices>();
+			//services.AddScoped<IRepository<Applicant>, Repository<Applicant>>();
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApplicantsManagementSystem.Api", Version = "v1" });
