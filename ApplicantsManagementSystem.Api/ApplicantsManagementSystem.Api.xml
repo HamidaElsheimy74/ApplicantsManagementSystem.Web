@@ -9,7 +9,7 @@
             manages all applicant operations
             </summary>
         </member>
-        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.AddAplicant(ApplicantsManagementSystem.BAL.Models.ApplicantModel)">
+        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.AddAplicant(ApplicantsManagementSystem.BAL.Models.AddApplicantRequestModel)">
             <summary>
             Add new applicant
             </summary>
@@ -138,7 +138,7 @@
             </remarks>
             <returns></returns>
         </member>
-        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.UpdateApplicant(ApplicantsManagementSystem.BAL.Models.ApplicantModel)">
+        <member name="M:ApplicantsManagementSystem.Api.Controllers.ApplicantManagementController.UpdateApplicant(ApplicantsManagementSystem.BAL.Models.UpdateApplicantRequestModel)">
              <summary>
              update  applicant data
              </summary>

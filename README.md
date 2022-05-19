@@ -95,8 +95,6 @@ A brief description of what this project does and who it's for
 
 ## 🔗 Links
 [![Github](https://github.com/HamidaElsheimy74/ApplicantsManagementSystem.Web)
-[!PostmanCollection](https://www.getpostman.com/collections/dfeb5e8cb178ac0a5f8a)
-
 
 ## Deployment
 #Site url
