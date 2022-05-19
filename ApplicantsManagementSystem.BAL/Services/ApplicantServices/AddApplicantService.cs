@@ -29,7 +29,7 @@ namespace ApplicantsManagementSystem.BAL.Services.ApplicantServices
 		/// </summary>
 		/// <param name="model"></param>
 		/// <returns></returns>
-		public ApplicantResponseModel Add(ApplicantModel model)
+		public ApplicantResponseModel Add(AddApplicantRequestModel model)
 		{
 			try
 			{

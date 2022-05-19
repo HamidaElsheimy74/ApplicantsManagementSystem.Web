@@ -28,11 +28,11 @@ namespace ApplicantsManagementSystem.BAL.Services.ApplicantServices
 		/// updates apllicant
 		/// </summary>
 		/// <param name="model"></param>
-		public ApplicantResponseModel Update(ApplicantModel model)
+		public ApplicantResponseModel Update(UpdateApplicantRequestModel model)
 		{
 			try
 			{
-				if (model.Id != null)
+				if (model.Id>0)
 				{
 
 					if (string.IsNullOrEmpty(model.Name) || string.IsNullOrWhiteSpace(model.Name))

@@ -166,7 +166,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		/// <returns></returns>
 		[Route("Applicant/Add")]
 		[HttpPost]
-		public IActionResult AddAplicant([FromBody] ApplicantModel model)
+		public IActionResult AddAplicant([FromBody] AddApplicantRequestModel model)
 		{
 			try
 			{
@@ -338,7 +338,7 @@ namespace ApplicantsManagementSystem.Api.Controllers
 		/// <returns></returns>
 		[Route("Applicant/Update")]
 		[HttpPut]
-		public IActionResult UpdateApplicant([FromBody] ApplicantModel model)
+		public IActionResult UpdateApplicant([FromBody] UpdateApplicantRequestModel model)
 		{
 			try
 			{

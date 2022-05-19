@@ -9,6 +9,6 @@ namespace ApplicantsManagementSystem.BAL.Interfaces.ApplicantInterfaces
 {
 	public interface IAddApplicantService
 	{
-		ApplicantResponseModel Add(ApplicantModel model);
+		ApplicantResponseModel Add(AddApplicantRequestModel model);
 	}
 }

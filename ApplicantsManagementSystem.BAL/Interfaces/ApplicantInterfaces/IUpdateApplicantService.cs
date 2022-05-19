@@ -9,6 +9,6 @@ namespace ApplicantsManagementSystem.BAL.Interfaces.ApplicantInterfaces
 {
 	public interface IUpdateApplicantService
 	{
-		ApplicantResponseModel Update(ApplicantModel model);
+		ApplicantResponseModel Update(UpdateApplicantRequestModel model);
 	}
 }

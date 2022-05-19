@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace ApplicantsManagementSystem.BAL.Models
 {
-	public class ApplicantModel
+	public class AddApplicantRequestModel
 	{
-		public int? Id { set; get; }
 		[Required]
 		public string Name { set; get; }
 		[Required]
